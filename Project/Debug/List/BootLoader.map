@@ -1,0 +1,432 @@
+###############################################################################
+#
+# IAR ELF Linker V9.32.1.338/W64 for ARM                  23/Feb/2023  20:37:35
+# Copyright 2007-2022 IAR Systems AB.
+#
+#    Output file  =
+#        C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Exe\BootLoader.out
+#    Map file     =
+#        C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\List\BootLoader.map
+#    Command line =
+#        -f
+#        C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Exe\BootLoader.out.rsp
+#        (C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Boot\boot.o
+#        C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Driver\Src\clocking.o
+#        C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Driver\Src\fgpio.o
+#        C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Driver\Src\FLASH.o
+#        C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Driver\Src\LPUART.o
+#        C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Source\main.o
+#        C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Driver\Src\port.o
+#        C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Queue\queue.o
+#        C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Srec\srec.o
+#        C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Startup\startup_MKE16Z4.o
+#        C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Startup\system_MKE16Z4.o
+#        --no_out_extension -o
+#        C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Exe\BootLoader.out
+#        --map
+#        C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\List\BootLoader.map
+#        --config "C:\Program Files\IAR Systems\Embedded Workbench
+#        9.1\arm/config/linker/NXP/MKE16Z64xxx4.icf" --semihosting --entry
+#        __iar_program_start --vfe --text_out locale --cpu=Cortex-M0+
+#        --fpu=None)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__CPP_Runtime   = 1
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because --advanced_heap
+was not specified and the application did not appear to
+be primarily optimized for speed.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at address 0x0 { ro section .intvec };
+"P1":  place in [from 0x0 to 0x3ff] |
+                [from 0x410 to 0xffff] { ro };
+define block CSTACK with size = 512, alignment = 8 { };
+define block PROC_STACK with size = 0, alignment = 8 { };
+define block HEAP with size = 2K, alignment = 8 { };
+"P2":  place in [from 0x1fff'f800 to 0x1fff'ffff] |
+                [from 0x2000'0000 to 0x2000'17ff] {
+          rw, block CSTACK, block PROC_STACK, block HEAP };
+"P3":  place in [from 0x400 to 0x40f] { section FlashConfig };
+initialize by copy { rw };
+
+  Section            Kind         Address    Size  Object
+  -------            ----         -------    ----  ------
+"A0":                                        0xc0
+  .intvec            ro code          0x0    0xc0  startup_MKE16Z4.o [6]
+                                   - 0xc0    0xc0
+
+"P1", part 1 of 2:                          0x204
+  .text              ro code         0xc0     0x2  IntDivZer.o [8]
+  .text              ro code         0xc2     0x2  startup_MKE16Z4.o [6]
+  .text              ro code         0xc4    0xf8  port.o [2]
+  Initializer bytes  const          0x1bc   0x108  <for P2 s0>
+                                  - 0x2c4   0x204
+
+"P3":                                        0x10
+  FlashConfig        ro code        0x400    0x10  startup_MKE16Z4.o [6]
+                                  - 0x410    0x10
+
+"P1", part 2 of 2:                         0x1064
+  .text              ro code        0x410   0x420  LPUART.o [2]
+  .text              ro code        0x830    0xe0  I32DivModFast.o [8]
+  .text              ro code        0x910   0x33c  srec.o [5]
+  .text              ro code        0xc4c   0x268  boot.o [1]
+  .text              ro code        0xeb4   0x108  clocking.o [2]
+  .text              ro code        0xfbc    0xec  queue.o [3]
+  .text              ro code       0x10a8   0x11e  FLASH.o [2]
+  .text              ro code       0x11c6     0x2  startup_MKE16Z4.o [6]
+  .text              ro code       0x11c8    0x44  fgpio.o [2]
+  .text              ro code       0x120c    0x34  ABImemcpy.o [8]
+  .text              ro code       0x1240    0x50  system_MKE16Z4.o [6]
+  .text              ro code       0x1290     0x2  system_MKE16Z4.o [6]
+  .text              ro code       0x1292    0x3c  main.o [4]
+  .text              ro code       0x12ce    0x3c  zero_init3.o [8]
+  .text              ro code       0x130a    0x30  copy_init3.o [8]
+  .text              ro code       0x133a     0x2  startup_MKE16Z4.o [6]
+  .text              ro code       0x133c    0x28  startup_MKE16Z4.o [6]
+  .text              ro code       0x1364    0x28  data_init.o [8]
+  .iar.init_table    const         0x138c    0x24  - Linker created -
+  .text              ro code       0x13b0    0x1e  cmain.o [8]
+  .text              ro code       0x13ce     0x4  low_level_init.o [7]
+  .text              ro code       0x13d2     0x8  exit.o [7]
+  .text              ro code       0x13da     0x2  startup_MKE16Z4.o [6]
+  .text              ro code       0x13dc     0xa  cexit.o [8]
+  .text              ro code       0x13e6     0x2  startup_MKE16Z4.o [6]
+  .text              ro code       0x13e8    0x14  exit.o [9]
+  .text              ro code       0x13fc    0x1c  cstartup_M.o [8]
+  .rodata            const         0x1418    0x14  port.o [2]
+  .rodata            const         0x142c    0x10  boot.o [1]
+  .text              ro code       0x143c     0x8  startup_MKE16Z4.o [6]
+  .text              ro code       0x1444     0x8  startup_MKE16Z4.o [6]
+  .text              ro code       0x144c     0x8  startup_MKE16Z4.o [6]
+  .text              ro code       0x1454     0x8  startup_MKE16Z4.o [6]
+  .text              ro code       0x145c     0x8  startup_MKE16Z4.o [6]
+  .text              ro code       0x1464     0x8  startup_MKE16Z4.o [6]
+  .text              ro code       0x146c     0x8  startup_MKE16Z4.o [6]
+  .rodata            const         0x1474     0x0  zero_init3.o [8]
+  .rodata            const         0x1474     0x0  copy_init3.o [8]
+                                 - 0x1474  0x1064
+
+"P2", part 1 of 3:                          0x108
+  P2 s0                       0x2000'0000   0x108  <Init block>
+    .data            inited   0x2000'0000    0x64  boot.o [1]
+    .data            inited   0x2000'0064    0x54  boot.o [1]
+    .data            inited   0x2000'00b8    0x2c  boot.o [1]
+    .data            inited   0x2000'00e4    0x14  fgpio.o [2]
+    .data            inited   0x2000'00f8     0xc  LPUART.o [2]
+    .data            inited   0x2000'0104     0x1  boot.o [1]
+    .data            inited   0x2000'0105     0x1  boot.o [1]
+    .data            inited   0x2000'0106     0x1  srec.o [5]
+    .data            inited   0x2000'0107     0x1  srec.o [5]
+                            - 0x2000'0108   0x108
+
+"P2", part 2 of 3:                         0x102c
+  .bss               zero     0x2000'0108  0x1008  queue.o [3]
+  .bss               zero     0x2000'1110     0xc  LPUART.o [2]
+  .bss               zero     0x2000'111c     0x4  LPUART.o [2]
+  .bss               zero     0x2000'1120     0x4  LPUART.o [2]
+  .bss               zero     0x2000'1124     0x4  queue.o [3]
+  .bss               zero     0x2000'1128     0x4  srec.o [5]
+  .bss               zero     0x2000'112c     0x2  queue.o [3]
+  .bss               zero     0x2000'112e     0x2  srec.o [5]
+  .bss               zero     0x2000'1130     0x1  queue.o [3]
+  .bss               zero     0x2000'1131     0x1  queue.o [3]
+  .bss               zero     0x2000'1132     0x1  srec.o [5]
+                            - 0x2000'1133  0x102b
+
+"P2", part 3 of 3:                          0x200
+  CSTACK                      0x2000'1138   0x200  <Block>
+    CSTACK           uninit   0x2000'1138   0x200  <Block tail>
+                            - 0x2000'1338   0x200
+
+Unused ranges:
+
+         From           To    Size
+         ----           --    ----
+        0x2c4        0x3ff   0x13c
+       0x1474       0xffff  0xeb8c
+  0x1fff'f800  0x1fff'ffff   0x800
+  0x2000'1134  0x2000'1137     0x4
+  0x2000'1338  0x2000'17ff   0x4c8
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0x102b:
+          0x2000'0108  0x102b
+
+Copy (__iar_copy_init3)
+    1 source range, total size 0x108:
+                0x1bc   0x108
+    1 destination range, total size 0x108:
+          0x2000'0000   0x108
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module             ro code  ro data  rw data
+    ------             -------  -------  -------
+command line/config:
+    --------------------------------------------
+    Total:
+
+C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Boot: [1]
+    boot.o                 616      246      230
+    --------------------------------------------
+    Total:                 616      246      230
+
+C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Driver\Src: [2]
+    FLASH.o                286
+    LPUART.o             1'056       12       32
+    clocking.o             264
+    fgpio.o                 68       20       20
+    port.o                 248       20
+    --------------------------------------------
+    Total:               1'922       52       52
+
+C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Queue: [3]
+    queue.o                236             4'112
+    --------------------------------------------
+    Total:                 236             4'112
+
+C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Source: [4]
+    main.o                  60
+    --------------------------------------------
+    Total:                  60
+
+C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Srec: [5]
+    srec.o                 828        2        9
+    --------------------------------------------
+    Total:                 828        2        9
+
+C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Startup: [6]
+    startup_MKE16Z4.o      314
+    system_MKE16Z4.o        82
+    --------------------------------------------
+    Total:                 396
+
+dl6M_tln.a: [7]
+    exit.o                   8
+    low_level_init.o         4
+    --------------------------------------------
+    Total:                  12
+
+rt6M_tl.a: [8]
+    ABImemcpy.o             52
+    I32DivModFast.o        224
+    IntDivZer.o              2
+    cexit.o                 10
+    cmain.o                 30
+    copy_init3.o            48
+    cstartup_M.o            28
+    data_init.o             40
+    zero_init3.o            60
+    --------------------------------------------
+    Total:                 494
+
+shb_l.a: [9]
+    exit.o                  20
+    --------------------------------------------
+    Total:                  20
+
+    Linker created                   36      512
+------------------------------------------------
+    Grand Total:         4'584      336    4'915
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address    Size  Type      Object
+-----                       -------    ----  ----      ------
+.iar.init_table$$Base        0x138c           --   Gb  - Linker created -
+.iar.init_table$$Limit       0x13b0           --   Gb  - Linker created -
+?main                        0x13b1          Code  Gb  cmain.o [8]
+ADC0_IRQHandler              0x146d          Code  Wk  startup_MKE16Z4.o [6]
+BOOT_APP_Task                 0xe6d    0x22  Code  Gb  boot.o [1]
+BOOT_DataReceivedHandler
+                              0xcdb    0x3c  Code  Lc  boot.o [1]
+BOOT_DataReceivedHandler::s_checkNewQueue
+                        0x2000'0105     0x1  Data  Lc  boot.o [1]
+BOOT_Init                     0xd17    0x4e  Code  Gb  boot.o [1]
+BOOT_InitButton               0xd65    0x38  Code  Gb  boot.o [1]
+BOOT_InitUART                 0xc4d    0x8e  Code  Lc  boot.o [1]
+BOOT_PressButton              0xd9d    0x18  Code  Gb  boot.o [1]
+BOOT_Task                     0xdb5    0xb8  Code  Gb  boot.o [1]
+CLOCKING_ConfigCGCandPCS
+                              0xf19    0x64  Code  Gb  clocking.o [2]
+CLOCKING_ConfigOnlyCGC        0xee3    0x36  Code  Gb  clocking.o [2]
+CLOCKING_FIRCDiv2Config
+                              0xeb5    0x2e  Code  Gb  clocking.o [2]
+CLOCKING_GetClockOfPeripheral
+                              0xf7d    0x22  Code  Gb  clocking.o [2]
+CMP0_IRQHandler              0x146d          Code  Wk  startup_MKE16Z4.o [6]
+CSTACK$$Base            0x2000'1138           --   Gb  - Linker created -
+CSTACK$$Limit           0x2000'1338           --   Gb  - Linker created -
+DefaultISR                   0x146d          Code  Wk  startup_MKE16Z4.o [6]
+FGPIO_Init                   0x11c9    0x2c  Code  Gb  fgpio.o [2]
+FGPIO_ReadPin                0x11f5    0x14  Code  Gb  fgpio.o [2]
+FLASH_EraseMultiSector       0x1191    0x36  Code  Gb  FLASH.o [2]
+FLASH_EraseSector            0x10a9    0x4c  Code  Lc  FLASH.o [2]
+FLASH_ProgramLongWord        0x10f5    0x76  Code  Gb  FLASH.o [2]
+FTFA_IRQHandler              0x146d          Code  Wk  startup_MKE16Z4.o [6]
+FTM0_IRQHandler              0x146d          Code  Wk  startup_MKE16Z4.o [6]
+FTM1_IRQHandler              0x146d          Code  Wk  startup_MKE16Z4.o [6]
+HardFault_Handler            0x11c7          Code  Wk  startup_MKE16Z4.o [6]
+LPI2C0_DriverIRQHandler
+                             0x146d          Code  Wk  startup_MKE16Z4.o [6]
+LPI2C0_IRQHandler            0x143d          Code  Wk  startup_MKE16Z4.o [6]
+LPIT0_IRQHandler             0x146d          Code  Wk  startup_MKE16Z4.o [6]
+LPSPI0_DriverIRQHandler
+                             0x146d          Code  Wk  startup_MKE16Z4.o [6]
+LPSPI0_IRQHandler            0x1445          Code  Wk  startup_MKE16Z4.o [6]
+LPUART0_DriverIRQHandler
+                             0x146d          Code  Wk  startup_MKE16Z4.o [6]
+LPUART0_IRQHandler            0x785    0x66  Code  Gb  LPUART.o [2]
+LPUART1_DriverIRQHandler
+                             0x146d          Code  Wk  startup_MKE16Z4.o [6]
+LPUART1_IRQHandler           0x144d          Code  Wk  startup_MKE16Z4.o [6]
+LPUART2_DriverIRQHandler
+                             0x146d          Code  Wk  startup_MKE16Z4.o [6]
+LPUART2_IRQHandler           0x1455          Code  Wk  startup_MKE16Z4.o [6]
+LPUART_DisableNVIC            0x56b    0x2c  Code  Lc  LPUART.o [2]
+LPUART_EnableNVIC             0x53f    0x2c  Code  Lc  LPUART.o [2]
+LPUART_Init                   0x597   0x166  Code  Gb  LPUART.o [2]
+LPUART_RecieveDataIT          0x763    0x1c  Code  Gb  LPUART.o [2]
+LPUART_SendData               0x739    0x2a  Code  Gb  LPUART.o [2]
+LPUART_SendDataIT             0x6fd    0x32  Code  Gb  LPUART.o [2]
+LPUART_SetBaudRate            0x449    0xf6  Code  Lc  LPUART.o [2]
+LVD_LVW_IRQHandler           0x146d          Code  Wk  startup_MKE16Z4.o [6]
+MSCAN_DriverIRQHandler       0x146d          Code  Wk  startup_MKE16Z4.o [6]
+MSCAN_ORed_IRQHandler        0x1465          Code  Wk  startup_MKE16Z4.o [6]
+MSCAN_Rx_IRQHandler          0x145d          Code  Wk  startup_MKE16Z4.o [6]
+NMI_Handler                    0xc3          Code  Wk  startup_MKE16Z4.o [6]
+PDB0_IRQHandler              0x146d          Code  Wk  startup_MKE16Z4.o [6]
+PORTAE_IRQHandler            0x146d          Code  Wk  startup_MKE16Z4.o [6]
+PORTBCD_IRQHandler           0x146d          Code  Wk  startup_MKE16Z4.o [6]
+PORT_Init                      0xc5    0xf8  Code  Gb  port.o [2]
+PWT_LPTMR0_IRQHandler        0x146d          Code  Wk  startup_MKE16Z4.o [6]
+PendSV_Handler               0x13db          Code  Wk  startup_MKE16Z4.o [6]
+QUEUE_DeQueue                0x1035    0x2e  Code  Gb  queue.o [3]
+QUEUE_EnQueue                 0xfff    0x36  Code  Gb  queue.o [3]
+QUEUE_Init                    0xfbd    0x1a  Code  Gb  queue.o [3]
+QUEUE_IsEmpty                 0xfeb    0x14  Code  Gb  queue.o [3]
+QUEUE_IsFull                  0xfd7    0x14  Code  Gb  queue.o [3]
+QUEUE_PopData                0x1081     0xe  Code  Gb  queue.o [3]
+QUEUE_PushData               0x1063    0x1e  Code  Gb  queue.o [3]
+RTC_IRQHandler               0x146d          Code  Wk  startup_MKE16Z4.o [6]
+Region$$Table$$Base          0x138c           --   Gb  - Linker created -
+Region$$Table$$Limit         0x13b0           --   Gb  - Linker created -
+Reserved16_IRQHandler        0x146d          Code  Wk  startup_MKE16Z4.o [6]
+Reserved17_IRQHandler        0x146d          Code  Wk  startup_MKE16Z4.o [6]
+Reserved18_IRQHandler        0x146d          Code  Wk  startup_MKE16Z4.o [6]
+Reserved19_IRQHandler        0x146d          Code  Wk  startup_MKE16Z4.o [6]
+Reserved20_IRQHandler        0x146d          Code  Wk  startup_MKE16Z4.o [6]
+Reserved25_IRQHandler        0x146d          Code  Wk  startup_MKE16Z4.o [6]
+Reserved27_IRQHandler        0x146d          Code  Wk  startup_MKE16Z4.o [6]
+Reserved35_IRQHandler        0x146d          Code  Wk  startup_MKE16Z4.o [6]
+Reserved37_IRQHandler        0x146d          Code  Wk  startup_MKE16Z4.o [6]
+Reserved39_IRQHandler        0x146d          Code  Wk  startup_MKE16Z4.o [6]
+Reset_Handler                0x133d          Code  Wk  startup_MKE16Z4.o [6]
+SCG_RCM_IRQHandler           0x146d          Code  Wk  startup_MKE16Z4.o [6]
+SREC_ConvertASCIIToDecima
+                              0xa51    0x30  Code  Lc  srec.o [5]
+SREC_Deinit                   0xc2f     0x8  Code  Gb  srec.o [5]
+SREC_Init                     0xa81    0x20  Code  Gb  srec.o [5]
+SREC_Parse                    0xaa1   0x18e  Code  Gb  srec.o [5]
+SREC_ParseLine                0x911   0x140  Code  Lc  srec.o [5]
+SVC_Handler                  0x133b          Code  Wk  startup_MKE16Z4.o [6]
+SysTick_Handler              0x13e7          Code  Wk  startup_MKE16Z4.o [6]
+SystemInit                   0x1241    0x34  Code  Gb  system_MKE16Z4.o [6]
+SystemInitHook               0x1291     0x2  Code  Wk  system_MKE16Z4.o [6]
+TSI_IRQHandler               0x146d          Code  Wk  startup_MKE16Z4.o [6]
+WDOG_EWM_IRQHandler          0x146d          Code  Wk  startup_MKE16Z4.o [6]
+__NVIC_DisableIRQ             0x429    0x20  Code  Lc  LPUART.o [2]
+__NVIC_EnableIRQ              0x411    0x18  Code  Lc  LPUART.o [2]
+__Vectors                       0x0           --   Gb  startup_MKE16Z4.o [6]
+__Vectors_End                  0xc0          Data  Gb  startup_MKE16Z4.o [6]
+__Vectors_Size {Abs}           0xc0           --   Gb  startup_MKE16Z4.o [6]
+__aeabi_idiv                  0x85d          Code  Gb  I32DivModFast.o [8]
+__aeabi_idiv0                  0xc1          Code  Gb  IntDivZer.o [8]
+__aeabi_idivmod               0x85d          Code  Gb  I32DivModFast.o [8]
+__aeabi_memcpy4              0x120d          Code  Gb  ABImemcpy.o [8]
+__aeabi_memcpy8              0x120d          Code  Gb  ABImemcpy.o [8]
+__aeabi_uidiv                 0x863          Code  Gb  I32DivModFast.o [8]
+__aeabi_uidivmod              0x863          Code  Gb  I32DivModFast.o [8]
+__cmain                      0x13b1          Code  Gb  cmain.o [8]
+__exit                       0x13e9    0x14  Code  Gb  exit.o [9]
+__iar_copy_init3             0x130b    0x30  Code  Gb  copy_init3.o [8]
+__iar_data_init3             0x1365    0x28  Code  Gb  data_init.o [8]
+__iar_program_start          0x13fd          Code  Gb  cstartup_M.o [8]
+__iar_zero_init3             0x12cf    0x3c  Code  Gb  zero_init3.o [8]
+__low_level_init             0x13cf     0x4  Code  Gb  low_level_init.o [7]
+__vector_table                  0x0          Data  Gb  startup_MKE16Z4.o [6]
+__vector_table_0x1c            0x1c          Data  Gb  startup_MKE16Z4.o [6]
+_call_main                   0x13bd          Code  Gb  cmain.o [8]
+_exit                        0x13dd          Code  Gb  cexit.o [8]
+exit                         0x13d3     0x8  Code  Gb  exit.o [7]
+main                         0x1293    0x3c  Code  Gb  main.o [4]
+s_ArrayFGPIO            0x2000'00e4    0x14  Data  Gb  fgpio.o [2]
+s_ArrayLPUART           0x2000'00f8     0xc  Data  Gb  LPUART.o [2]
+s_CheckTypeOfData       0x2000'0107     0x1  Data  Lc  srec.o [5]
+s_Count                 0x2000'112c     0x2  Data  Lc  queue.o [3]
+s_CountDataLine         0x2000'1128     0x4  Data  Lc  srec.o [5]
+s_CountError            0x2000'112e     0x2  Data  Lc  srec.o [5]
+s_Error                 0x2000'0000    0x64  Data  Lc  boot.o [1]
+s_Front                 0x2000'1130     0x1  Data  Lc  queue.o [3]
+s_Queue                 0x2000'0108  0x1008  Data  Lc  queue.o [3]
+s_QueueLevel            0x2000'1124     0x4  Data  Lc  queue.o [3]
+s_Rear                  0x2000'1131     0x1  Data  Lc  queue.o [3]
+s_RxlpuartCallBack      0x2000'111c     0x4  Data  Lc  LPUART.o [2]
+s_SizeAddress           0x2000'1132     0x1  Data  Lc  srec.o [5]
+s_Start                 0x2000'00b8    0x2c  Data  Lc  boot.o [1]
+s_Status                0x2000'0106     0x1  Data  Lc  srec.o [5]
+s_Succes                0x2000'0064    0x54  Data  Lc  boot.o [1]
+s_TxBuffer              0x2000'1110     0xc  Data  Lc  LPUART.o [2]
+s_TxlpuartCallBack      0x2000'1120     0x4  Data  Lc  LPUART.o [2]
+s_statusSREC            0x2000'0104     0x1  Data  Lc  boot.o [1]
+
+
+[1] = C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Boot
+[2] = C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Driver\Src
+[3] = C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Queue
+[4] = C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Source
+[5] = C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Srec
+[6] = C:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Startup
+[7] = dl6M_tln.a
+[8] = rt6M_tl.a
+[9] = shb_l.a
+
+  4'584 bytes of readonly  code memory
+    336 bytes of readonly  data memory
+  4'915 bytes of readwrite data memory
+
+Errors: none
+Warnings: none

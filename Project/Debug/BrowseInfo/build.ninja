@@ -1,0 +1,143 @@
+##IAR Ninja build file
+
+
+#Rules
+rule COMPILER_XCL
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\XclFileGenerator.exe" $xclcommand -f "$rspfile_name"
+  description = IAR_NEW_TOOL+++COMPILER_XCL+++$in
+  rspfile = $rspfile_name
+  rspfile_content = $flags
+
+rule INDEXER
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\SourceIndexer.exe" $flags
+  depfile = $out.dep
+  description = IAR_NEW_TOOL+++INDEXER+++$out
+
+rule MAKEBROWSE
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\makeBrowseData.exe" $flags
+  description = IAR_NEW_TOOL+++MAKEBROWSE+++$out
+
+rule PDBLINK
+  command = "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\common\bin\PbdLink.exe" $flags
+  description = IAR_NEW_TOOL+++PDBLINK+++$out
+
+
+
+#Build steps
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Boot\boot.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Boot\boot.c -xcl_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Boot\boot.xcl -macro_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Boot\boot.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Boot\boot.c -D CPU_MKE16Z64VLF4 -o C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Boot --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\CMSIS\Include\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\MKE16Z4\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Queue\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Srec\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\inc\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Boot\ -Ol --predef_macros C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Boot\boot.tmp
+  rspfile_name = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Boot\boot.xcl.rsp
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\clocking.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\src\clocking.c -xcl_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\clocking.xcl -macro_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\clocking.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\src\clocking.c -D CPU_MKE16Z64VLF4 -o C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Driver\Src --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\CMSIS\Include\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\MKE16Z4\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Queue\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Srec\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\inc\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Boot\ -Ol --predef_macros C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\clocking.tmp
+  rspfile_name = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\clocking.xcl.rsp
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\fgpio.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\src\fgpio.c -xcl_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\fgpio.xcl -macro_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\fgpio.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\src\fgpio.c -D CPU_MKE16Z64VLF4 -o C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Driver\Src --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\CMSIS\Include\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\MKE16Z4\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Queue\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Srec\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\inc\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Boot\ -Ol --predef_macros C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\fgpio.tmp
+  rspfile_name = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\fgpio.xcl.rsp
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\FLASH.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\src\FLASH.c -xcl_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\FLASH.xcl -macro_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\FLASH.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\src\FLASH.c -D CPU_MKE16Z64VLF4 -o C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Driver\Src --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\CMSIS\Include\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\MKE16Z4\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Queue\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Srec\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\inc\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Boot\ -Ol --predef_macros C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\FLASH.tmp
+  rspfile_name = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\FLASH.xcl.rsp
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\LPUART.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\src\LPUART.c -xcl_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\LPUART.xcl -macro_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\LPUART.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\src\LPUART.c -D CPU_MKE16Z64VLF4 -o C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Driver\Src --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\CMSIS\Include\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\MKE16Z4\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Queue\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Srec\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\inc\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Boot\ -Ol --predef_macros C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\LPUART.tmp
+  rspfile_name = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\LPUART.xcl.rsp
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\port.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\src\port.c -xcl_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\port.xcl -macro_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\port.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\src\port.c -D CPU_MKE16Z64VLF4 -o C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Driver\Src --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\CMSIS\Include\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\MKE16Z4\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Queue\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Srec\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\inc\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Boot\ -Ol --predef_macros C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\port.tmp
+  rspfile_name = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\port.xcl.rsp
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Queue\queue.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Queue\queue.c -xcl_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Queue\queue.xcl -macro_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Queue\queue.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Queue\queue.c -D CPU_MKE16Z64VLF4 -o C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Queue --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\CMSIS\Include\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\MKE16Z4\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Queue\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Srec\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\inc\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Boot\ -Ol --predef_macros C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Queue\queue.tmp
+  rspfile_name = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Queue\queue.xcl.rsp
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Source\main.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Source\main.c -xcl_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Source\main.xcl -macro_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Source\main.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Source\main.c -D CPU_MKE16Z64VLF4 -o C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Source --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\CMSIS\Include\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\MKE16Z4\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Queue\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Srec\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\inc\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Boot\ -Ol --predef_macros C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Source\main.tmp
+  rspfile_name = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Source\main.xcl.rsp
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Srec\srec.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Srec\srec.c -xcl_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Srec\srec.xcl -macro_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Srec\srec.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Srec\srec.c -D CPU_MKE16Z64VLF4 -o C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Srec --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\CMSIS\Include\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\MKE16Z4\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Queue\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Srec\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\inc\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Boot\ -Ol --predef_macros C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Srec\srec.tmp
+  rspfile_name = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Srec\srec.xcl.rsp
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Startup\system_MKE16Z4.xcl : COMPILER_XCL 
+  xclcommand = -source_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\MKE16Z4\system_MKE16Z4.c -xcl_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Startup\system_MKE16Z4.xcl -macro_file C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Startup\system_MKE16Z4.tmp -icc_path "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\bin\iccarm.exe"
+  flags = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\MKE16Z4\system_MKE16Z4.c -D CPU_MKE16Z64VLF4 -o C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\Obj\Startup --no_cse --no_unroll --no_inline --no_code_motion --no_tbaa --no_clustering --no_scheduling --debug --endian=little --cpu=Cortex-M0+ -e --fpu=None --dlib_config "C$:\Program$ Files\IAR$ Systems\Embedded$ Workbench$ 9.1\arm\inc\c\DLib_Config_Normal.h" -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\CMSIS\Include\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\MKE16Z4\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Queue\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Srec\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\inc\ -I C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Boot\ -Ol --predef_macros C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Startup\system_MKE16Z4.tmp
+  rspfile_name = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Startup\system_MKE16Z4.xcl.rsp
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Boot\boot.pbi : INDEXER C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Boot\boot.xcl |  $
+C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Boot\boot.c
+  flags = -out=C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Boot\boot.pbi -f C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Boot\boot.xcl
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\clocking.pbi : INDEXER C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\clocking.xcl |  $
+C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\src\clocking.c
+  flags = -out=C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\clocking.pbi -f C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\clocking.xcl
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\fgpio.pbi : INDEXER C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\fgpio.xcl |  $
+C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\src\fgpio.c
+  flags = -out=C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\fgpio.pbi -f C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\fgpio.xcl
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\FLASH.pbi : INDEXER C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\FLASH.xcl |  $
+C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\src\FLASH.c
+  flags = -out=C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\FLASH.pbi -f C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\FLASH.xcl
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\LPUART.pbi : INDEXER C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\LPUART.xcl |  $
+C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\src\LPUART.c
+  flags = -out=C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\LPUART.pbi -f C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\LPUART.xcl
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\port.pbi : INDEXER C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\port.xcl |  $
+C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Driver\src\port.c
+  flags = -out=C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\port.pbi -f C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\port.xcl
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Queue\queue.pbi : INDEXER C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Queue\queue.xcl |  $
+C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Queue\queue.c
+  flags = -out=C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Queue\queue.pbi -f C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Queue\queue.xcl
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Source\main.pbi : INDEXER C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Source\main.xcl |  $
+C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Source\main.c
+  flags = -out=C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Source\main.pbi -f C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Source\main.xcl
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Srec\srec.pbi : INDEXER C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Srec\srec.xcl |  $
+C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Srec\srec.c
+  flags = -out=C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Srec\srec.pbi -f C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Srec\srec.xcl
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Startup\system_MKE16Z4.pbi : INDEXER C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Startup\system_MKE16Z4.xcl |  $
+C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\MKE16Z4\system_MKE16Z4.c
+  flags = -out=C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Startup\system_MKE16Z4.pbi -f C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Startup\system_MKE16Z4.xcl
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader.pbw : MAKEBROWSE C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader.pbd
+  flags = C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader.pbd -output C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader.pbw
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader_part0.pbi : PDBLINK C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Boot\boot.pbi |  $
+C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\clocking.pbi $
+C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\fgpio.pbi
+  flags = -M C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader_part0.pbi C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Boot\boot.pbi C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\clocking.pbi C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\fgpio.pbi
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader_part1.pbi : PDBLINK C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\FLASH.pbi |  $
+C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\LPUART.pbi $
+C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\port.pbi
+  flags = -M C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader_part1.pbi C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\FLASH.pbi C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\LPUART.pbi C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Driver\Src\port.pbi
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader_part2.pbi : PDBLINK C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Queue\queue.pbi |  $
+C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Source\main.pbi $
+C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Srec\srec.pbi
+  flags = -M C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader_part2.pbi C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Queue\queue.pbi C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Source\main.pbi C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Srec\srec.pbi
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader_part3.pbi : PDBLINK C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Startup\system_MKE16Z4.pbi
+  flags = -M C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader_part3.pbi C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\Startup\system_MKE16Z4.pbi
+
+build C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader.pbd : PDBLINK C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader_part0.pbi |  $
+C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader_part1.pbi $
+C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader_part2.pbi $
+C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader_part3.pbi
+  flags = -M C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader.pbd C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader_part0.pbi C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader_part1.pbi C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader_part2.pbi C$:\Users\999va\OneDrives\Desktop\FPT\NXP\Mock\Project\Debug\BrowseInfo\BootLoader_part3.pbi
+
